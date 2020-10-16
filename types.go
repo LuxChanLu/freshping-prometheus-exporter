@@ -17,7 +17,6 @@ type FreshpingStatusPage struct {
 	Props struct {
 		PageProps struct {
 			Checks struct {
-				HTTPReferalURL   string `json:"http_referal_url"`
 				StatusPageID     int    `json:"status_page_id"`
 				StatusPageName   string `json:"status_page_name"`
 				OrganizationID   int    `json:"organization_id"`

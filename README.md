@@ -1,5 +1,9 @@
 # Freshping prometheus exporter
+[![Build Status](https://github.com/LuxChanLu/freshping-prometheus-exporter/workflows/Build/badge.svg)](https://github.com/LuxChanLu/freshping-prometheus-exporter/actions)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/55034b0716704ad388252aa3a1789b1a)](https://www.codacy.com/gh/LuxChanLu/freshping-prometheus-exporter/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LuxChanLu/freshping-prometheus-exporter&amp;utm_campaign=Badge_Grade)
+[![GitHub release](https://img.shields.io/github/release/LuxChanLu/freshping-prometheus-exporter.svg)](https://github.com/LuxChanLu/freshping-prometheus-exporter/releases)
+[![Go Report Card](https://goreportcard.com/badge/github.com/LuxChanLu/freshping-prometheus-exporter)](https://goreportcard.com/report/github.com/LuxChanLu/freshping-prometheus-exporter)
+[![go-doc](https://godoc.org/github.com/LuxChanLu/freshping-prometheus-exporter?status.svg)](https://godoc.org/github.com/LuxChanLu/freshping-prometheus-exporter)
 
 This is a simple prometheus exporter for [freshping.io](https://www.freshping.io/)
 
@@ -8,8 +12,8 @@ This is a simple prometheus exporter for [freshping.io](https://www.freshping.io
 You first need to have a status page enable (This exporter use the status page api)
 
 To run you only need to provide one of these envionment variables :
-- `FRESHPING_URL` : URL to your status page (`https://statuspage.freshping.io/XXXXX-XXXXX/`)
-- `FRESHPING_URL_FILE` : A file containing the URL (In case you want to use a vault with secrets if your url have an url or password `https://username:password@statuspage.freshping.io/XXXXX-XXXXX/`)
+  - `FRESHPING_URL` : URL to your status page (`https://statuspage.freshping.io/XXXXX-XXXXX/`)
+  - `FRESHPING_URL_FILE` : A file containing the URL (In case you want to use a vault with secrets if your url have an url or password `https://username:password@statuspage.freshping.io/XXXXX-XXXXX/`)
 
 ## Kubernetes
 (You can add the `prometheus.io/scrape` if your deployment use it)
