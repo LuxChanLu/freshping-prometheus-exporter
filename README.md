@@ -39,6 +39,9 @@ spec:
       containers:
       - name: freshping-exporter
         image: luxchan/freshping-prometheus-exporter:<VERSION>
+        env:
+          - name: FRESHPING_URL
+            value: https://statuspage.freshping.io/XXXXX-XXXXX/
         resources:
           requests:
             memory: "64Mi"
