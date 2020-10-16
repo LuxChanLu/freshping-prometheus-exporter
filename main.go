@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/prometheus/client_golang/prometheus"
@@ -112,7 +113,7 @@ func main() {
 				log.Fatalln(err)
 				return
 			}
-			freshpingURL = string(content)
+			freshpingURL = strings.TrimSpace(string(content))
 		}
 	}
 	if freshpingURL == "" {
