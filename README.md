@@ -12,8 +12,8 @@ This is a simple prometheus exporter for [freshping.io](https://www.freshping.io
 You first need to have a status page enable (This exporter use the status page api)
 
 To run you only need to provide one of these envionment variables :
-- `FRESHPING_URL` : URL to your status page (`https://statuspage.freshping.io/XXXXX-XXXXX/`)
-- `FRESHPING_URL_FILE` : A file containing the URL (In case you want to use a vault with secrets if your url have an url or password `https://username:password@statuspage.freshping.io/XXXXX-XXXXX/`)
+-  `FRESHPING_URL` : URL to your status page (`https://statuspage.freshping.io/XXXXX-XXXXX/`)
+-  `FRESHPING_URL_FILE` : A file containing the URL (In case you want to use a vault with secrets if your url have an url or password `https://username:password@statuspage.freshping.io/XXXXX-XXXXX/`)
 
 ## Kubernetes
 (You can add the `prometheus.io/scrape` if your deployment use it)
