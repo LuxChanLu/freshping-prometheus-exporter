@@ -9,7 +9,7 @@ const metricsNamespace = "freshping"
 const reportSubsystem = "report"
 const timingsSubsystem = "report"
 
-var labels = []string{"check_id", "check_name"}
+var labels = []string{"organization_id", "organization_name", "status_page_id", "status_page_name", "check_id", "check_name"}
 
 var (
 	// Basic report metrics

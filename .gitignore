@@ -1,4 +1,5 @@
 main
+freshping-prometheus-exporter
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~

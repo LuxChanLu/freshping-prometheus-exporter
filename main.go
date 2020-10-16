@@ -71,27 +71,36 @@ func (exporter *FreshpingExporter) ServeHTTP(w http.ResponseWriter, r *http.Requ
 			if err != nil {
 				return err
 			}
-			reportDurationSecondsAvailable.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.DurationSecondsAvailable)
-			reportDurationSecondsReportingError.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.DurationSecondsReportingError)
-			reportDurationSecondsNotResponding.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.DurationSecondsNotResponding)
-			reportOutagesCountReportingError.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.OutagesCountReportingError)
-			reportOutagesCountNotResponding.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.OutagesCountNotResponding)
-			reportAverageResponseTimeMillisecondsAvailable.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.AverageResponseTimeMillisecondsAvailable)
-			reportAverageResponseTimeMillisecondsReportingError.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.AverageResponseTimeMillisecondsReportingError)
-			reportMinimumResponseTimeMillisecondsAvailable.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.MinimumResponseTimeMillisecondsAvailable)
-			reportMinimumResponseTimeMillisecondsReportingError.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.MinimumResponseTimeMillisecondsReportingError)
-			reportMaximumResponseTimeMillisecondsAvailable.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.MaximumResponseTimeMillisecondsAvailable)
-			reportMaximumResponseTimeMillisecondsReportingError.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.MaximumResponseTimeMillisecondsReportingError)
-			reportDurationSecondsPerformanceGood.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.DurationSecondsPerformanceGood)
-			reportDurationSecondsPerformanceDegraded.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.DurationSecondsPerformanceDegraded)
-			reportCountPerformanceDegradations.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.CountPerformanceDegradations)
-			reportApdexResultsCountSatisfied.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.ApdexResultsCountSatisfied)
-			reportApdexResultsCountTolerating.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.ApdexResultsCountTolerating)
-			reportApdexResultsCountFrustrated.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.ApdexResultsCountFrustrated)
-			reportAvailabilityPercentage.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(availabilityPercentage)
-			reportDurationSecondsTotalDowntime.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.DurationSecondsTotalDowntime)
-			reportOutagesCountTotal.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(report.OutagesCountTotal)
-			reportApdexScore.WithLabelValues(strconv.Itoa(check.CheckID), check.CheckName).Set(apdexScore)
+			labels := []string{
+				strconv.Itoa(statusPage.Props.PageProps.Checks.OrganizationID),
+				statusPage.Props.PageProps.Checks.OrganizationName,
+				strconv.Itoa(statusPage.Props.PageProps.Checks.StatusPageID),
+				statusPage.Props.PageProps.Checks.StatusPageName,
+				strconv.Itoa(check.CheckID),
+				check.CheckName,
+			}
+
+			reportDurationSecondsAvailable.WithLabelValues(labels...).Set(report.DurationSecondsAvailable)
+			reportDurationSecondsReportingError.WithLabelValues(labels...).Set(report.DurationSecondsReportingError)
+			reportDurationSecondsNotResponding.WithLabelValues(labels...).Set(report.DurationSecondsNotResponding)
+			reportOutagesCountReportingError.WithLabelValues(labels...).Set(report.OutagesCountReportingError)
+			reportOutagesCountNotResponding.WithLabelValues(labels...).Set(report.OutagesCountNotResponding)
+			reportAverageResponseTimeMillisecondsAvailable.WithLabelValues(labels...).Set(report.AverageResponseTimeMillisecondsAvailable)
+			reportAverageResponseTimeMillisecondsReportingError.WithLabelValues(labels...).Set(report.AverageResponseTimeMillisecondsReportingError)
+			reportMinimumResponseTimeMillisecondsAvailable.WithLabelValues(labels...).Set(report.MinimumResponseTimeMillisecondsAvailable)
+			reportMinimumResponseTimeMillisecondsReportingError.WithLabelValues(labels...).Set(report.MinimumResponseTimeMillisecondsReportingError)
+			reportMaximumResponseTimeMillisecondsAvailable.WithLabelValues(labels...).Set(report.MaximumResponseTimeMillisecondsAvailable)
+			reportMaximumResponseTimeMillisecondsReportingError.WithLabelValues(labels...).Set(report.MaximumResponseTimeMillisecondsReportingError)
+			reportDurationSecondsPerformanceGood.WithLabelValues(labels...).Set(report.DurationSecondsPerformanceGood)
+			reportDurationSecondsPerformanceDegraded.WithLabelValues(labels...).Set(report.DurationSecondsPerformanceDegraded)
+			reportCountPerformanceDegradations.WithLabelValues(labels...).Set(report.CountPerformanceDegradations)
+			reportApdexResultsCountSatisfied.WithLabelValues(labels...).Set(report.ApdexResultsCountSatisfied)
+			reportApdexResultsCountTolerating.WithLabelValues(labels...).Set(report.ApdexResultsCountTolerating)
+			reportApdexResultsCountFrustrated.WithLabelValues(labels...).Set(report.ApdexResultsCountFrustrated)
+			reportAvailabilityPercentage.WithLabelValues(labels...).Set(availabilityPercentage)
+			reportDurationSecondsTotalDowntime.WithLabelValues(labels...).Set(report.DurationSecondsTotalDowntime)
+			reportOutagesCountTotal.WithLabelValues(labels...).Set(report.OutagesCountTotal)
+			reportApdexScore.WithLabelValues(labels...).Set(apdexScore)
 			return nil
 		})
 	}
