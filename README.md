@@ -54,13 +54,13 @@ spec:
           protocol: TCP
           name: metrics
         securityContext:
+          readOnlyRootFilesystem: true
           allowPrivilegeEscalation: false
           privileged: false
           capabilities:
             drop:
               - ALL
       securityContext:
-        readOnlyRootFilesystem: true
         runAsNonRoot: true
         runAsUser: 10001
 ```
@@ -87,7 +87,6 @@ kind: ServiceMonitor
 apiVersion: monitoring.coreos.com/v1
 metadata:
   name: freshping-exporter
-  namespace: monitor
   labels:
     app.kubernetes.io/name: freshping-exporter
 spec:

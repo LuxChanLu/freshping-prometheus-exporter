@@ -20,7 +20,7 @@ RUN apk update && \
 COPY . .
 
 RUN go mod download
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /app
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-w -s" -o /app
 
 FROM scratch
 
