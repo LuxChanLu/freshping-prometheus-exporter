@@ -4,6 +4,8 @@
 [![GitHub release](https://img.shields.io/github/release/LuxChanLu/freshping-prometheus-exporter.svg)](https://github.com/LuxChanLu/freshping-prometheus-exporter/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/LuxChanLu/freshping-prometheus-exporter)](https://goreportcard.com/report/github.com/LuxChanLu/freshping-prometheus-exporter)
 [![go-doc](https://godoc.org/github.com/LuxChanLu/freshping-prometheus-exporter?status.svg)](https://pkg.go.dev/github.com/LuxChanLu/freshping-prometheus-exporter)
+[![Docker Pulls](https://img.shields.io/docker/pulls/luxchan/freshping-prometheus-exporter.svg?maxAge=604800)](https://hub.docker.com/r/luxchan/freshping-prometheus-exporter)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/luxchan/freshping-prometheus-exporter)
 
 This is a simple prometheus exporter for [freshping.io](https://www.freshping.io/)
 
@@ -95,3 +97,5 @@ spec:
     targetPort: 9705
     interval: 15s
 ```
+
+Need more than one status page ? Add a container into your deployment and a port into your service
